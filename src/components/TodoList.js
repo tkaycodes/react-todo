@@ -36,15 +36,15 @@ class TodoList extends Component {
 
     };
     
-    removeItem(itemId) {
+    removeItem(item) {
 
-    
         let filteredArray = this.state.itemList;
+        let indexToRemove = filteredArray.indexOf(item)
 
         for (var i=0;i<filteredArray.length; i++) {
 
-            if (filteredArray[itemId] === filteredArray[i]) {
-                filteredArray.splice(i, 1);
+            if (filteredArray[indexToRemove] === filteredArray[i]) {
+                filteredArray.splice(indexToRemove, 1);
             }
 
         }
@@ -68,7 +68,10 @@ class TodoList extends Component {
 
                 {
                     this.state.itemList.map((item, index) => {
-                        return <Todo key={index} value={item} itemIndex={index} removeItem={this.removeItem} />
+
+                        let randomKey = Math.random().toFixed(5);
+                        return <Todo key={ randomKey } value={item} itemIndex={ randomKey } removeItem={this.removeItem} />
+
                     })
                 }
 

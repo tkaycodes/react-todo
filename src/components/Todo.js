@@ -22,7 +22,7 @@ class Todo extends Component {
         this.setState({
             checked: !this.state.checked
         }, function() {
-            this.props.removeItem(this.props.itemIndex)
+            this.props.removeItem(this.props.value)
         });
 
        
