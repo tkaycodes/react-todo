@@ -59,22 +59,22 @@ class TodoList extends Component {
     render() {
 
         return (
-            <div>
-                <div>Todo List</div>
-                <div>Enter  new item:</div>
+            <div className="container">
+                <div className="items">
 
-                <input onChange={this.handleChange} value={this.state.inputvalue} />
-                <button onClick={this.addNewItem}>Add</button>
+                    <input onChange={this.handleChange} value={this.state.inputvalue} style={{padding: '10px', marginBottom: '10px'}}/>
+                    <button className="addItem" onClick={this.addNewItem}>Add New Item</button>
 
-                {
-                    this.state.itemList.map((item, index) => {
+                    {
+                        this.state.itemList.map((item, index) => {
 
-                        let randomKey = Math.random().toFixed(5);
-                        return <Todo key={ randomKey } value={item} itemIndex={ randomKey } removeItem={this.removeItem} />
+                            let randomKey = Math.random().toFixed(5);
+                            return <Todo key={ randomKey } value={item} itemIndex={ randomKey } removeItem={this.removeItem} />
 
-                    })
-                }
-
+                        })
+                    }
+            
+                </div>
             </div>
         );
     }

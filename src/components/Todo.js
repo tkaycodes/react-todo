@@ -18,7 +18,6 @@ class Todo extends Component {
 
     handleChange() {
 
-
         this.setState({
             checked: !this.state.checked
         }, function() {
@@ -31,7 +30,7 @@ class Todo extends Component {
     render() {
         return (
             <div>
-                <div>{this.props.value}<input type="checkbox" onChange={ this.handleChange } checked={this.state.checked} /></div>
+                <div className="todo"><label>{this.props.value}</label><input type="checkbox" onChange={ this.handleChange } checked={this.state.checked} /></div>
             </div>
         )
     }
